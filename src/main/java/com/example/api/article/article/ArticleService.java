@@ -20,23 +20,24 @@ public class ArticleService {
     }
 
     public Article create(ArticleCreateDTO dto) {
-    List<Tag> processedTags = dto.getTags().stream()
-            .map(name -> 
-                    tagRepository.findByName(name)
-                            .orElseGet(() -> {
-                                Tag t = new Tag();
-                                t.setName(name);
-                                return tagRepository.save(t);
-                            })
-            )
-            .collect(Collectors.toList());
-    Article article = new Article();
-    article.setTitle(dto.getTitle());
-    article.setDescription(dto.getDescription());
-    article.setBody(dto.getBody());
-    article.setTags(processedTags);
 
-    return articleRepository.save(article);
-}
+        List<Tag> processedTags = dto.getTags().stream()
+                .map(name ->
+                        tagRepository.findByName(name)
+                                .orElseGet(() -> {
+                                    Tag t = new Tag();
+                                    t.setName(name);
+                                    return tagRepository.save(t);
+                                })
+                )
+                .collect(Collectors.toList());
 
+        Article article = new Article();
+        article.setTitle(dto.getTitle());
+        article.setDescription(dto.getDescription());
+        article.setBody(dto.getBody());
+        article.setTags(processedTags);
+
+        return articleRepository.save(article);
+    }
 }

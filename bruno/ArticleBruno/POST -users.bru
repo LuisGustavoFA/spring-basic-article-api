@@ -1,7 +1,7 @@
 meta {
   name: POST /users
   type: http
-  seq: 4
+  seq: 2
 }
 
 post {
@@ -18,8 +18,18 @@ body:json {
   {
     "username": "bruno",
     "email": "bruno@email.com",
-    "username": "123456"
+    "password": "123456"
   }
+}
+
+tests {
+  test("deve retornar código 200 para o usuário criado com sucesso", function () {
+    expect(res.getStatus()).to.equal(200);
+    const body = res.getBody();
+    expect(body).to.have.property("id");
+    expect(body.username).to.equal("bruno");
+  });
+  
 }
 
 settings {
