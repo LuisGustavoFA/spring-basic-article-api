@@ -1,4 +1,4 @@
-# Spring Basic Article API with JUNIT Tests
+# Spring Basic Article API with several tests
 
 Este projeto utiliza Java 17.
 
