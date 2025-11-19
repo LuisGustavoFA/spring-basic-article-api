@@ -1,0 +1,29 @@
+meta {
+  name: POST /articles
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseURL}}/articles
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "title": "noticia",
+    "description": "acontecimento urgente",
+    "body": "tal coisa aconteceu, saiba por que",
+    "tags": ["breaking news", "aterrorizante"]
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

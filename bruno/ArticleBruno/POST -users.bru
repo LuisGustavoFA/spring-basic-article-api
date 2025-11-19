@@ -1,0 +1,28 @@
+meta {
+  name: POST /users
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseURL}}/users
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "username": "bruno",
+    "email": "bruno@email.com",
+    "username": "123456"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
