@@ -13,6 +13,14 @@ mvnw spring-boot:run
 
 ## Tests
 
+Testes unitários com JUnit:
+
+```
+spring-basic-article-api/src/test/java/com/example/api/article
+```
+
+---
+
 Para testes de performance, abrir o ambiente JMeter com o arquivo .jmx fornecido em:
 
 ```
